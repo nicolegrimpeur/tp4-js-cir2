@@ -6,6 +6,40 @@ describe('JeuComponent', () => {
   it('should create', () => {
     expect(JeuComponent).toBeTruthy();
   });
+});
+
+describe('Tests unitaires Exercice 1', () => {
+  it('should work', () => {
+    const observableObject = new Observable();
+
+    const winCallback = (player: string): string => {
+      console.log('Player', player, 'win !');
+      return 'Player' + player + 'win !';
+    };
+
+    observableObject.on('win', winCallback);
+    observableObject.on('move', (player: string, x: number, y: number): string => {
+      console.log('Player', player, 'is moving on (' + x + ',' + y + ')');
+      return 'Player' + player + 'is moving on (' + x + ',' + y + ')';
+    });
+
+    observableObject.off('win', winCallback);
+    observableObject.on('win', winCallback);
+
+    expect(observableObject.trigger('win', 'Bob')).toEqual('PlayerBobwin !');
+    expect(observableObject.trigger('move', 'Alice', 2, 1)).toEqual('PlayerAliceis moving on (2,1)');
+
+    observableObject.off('win', winCallback);
+    expect(observableObject.trigger('win', 'Alice')).toEqual(-1);
+    expect(observableObject.trigger('move', 'Bob', 1, 1)).toEqual('PlayerBobis moving on (1,1)');
+  });
+});
+
+/*
+describe('Tests unitaires Exercice 2', () => {
+  it('should create', () => {
+    expect(JeuComponent).toBeTruthy();
+  });
 
   it('TicTacToe prototype - method existance', () => {
     expect(typeof TicTacToe.prototype.play).toEqual('function');
@@ -179,3 +213,4 @@ describe('JeuComponent', () => {
     expect(game.getWinner()).toEqual(undefined);
   });
 });
+*/
