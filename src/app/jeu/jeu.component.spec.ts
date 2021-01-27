@@ -9,7 +9,7 @@ describe('JeuComponent', () => {
 });
 
 describe('Tests unitaires Exercice 1', () => {
-  it('should work', () => {
+  it('devrait marcher', () => {
     const observableObject = new Observable();
 
     const winCallback = (player: string): string => {
@@ -35,12 +35,7 @@ describe('Tests unitaires Exercice 1', () => {
   });
 });
 
-/*
 describe('Tests unitaires Exercice 2', () => {
-  it('should create', () => {
-    expect(JeuComponent).toBeTruthy();
-  });
-
   it('TicTacToe prototype - method existance', () => {
     expect(typeof TicTacToe.prototype.play).toEqual('function');
     expect(typeof TicTacToe.prototype.reset).toEqual('function');
@@ -70,6 +65,7 @@ describe('Tests unitaires Exercice 2', () => {
     }
   });
 
+  /*
   it('TicTacToe play - player id', () => {
     const game = new TicTacToe();
 
@@ -212,5 +208,5 @@ describe('Tests unitaires Exercice 2', () => {
     expect(!game.hasWinner()).toBeTruthy();
     expect(game.getWinner()).toEqual(undefined);
   });
+  */
 });
-*/
