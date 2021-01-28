@@ -65,7 +65,6 @@ describe('Tests unitaires Exercice 2', () => {
     }
   });
 
-  /*
   it('TicTacToe play - player id', () => {
     const game = new TicTacToe();
 
@@ -208,5 +207,4 @@ describe('Tests unitaires Exercice 2', () => {
     expect(!game.hasWinner()).toBeTruthy();
     expect(game.getWinner()).toEqual(undefined);
   });
-  */
 });

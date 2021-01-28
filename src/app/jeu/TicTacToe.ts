@@ -50,18 +50,42 @@ export class TicTacToe extends Observable {
     });
 
     this.observableObject.on('isFinished', (): boolean => {
-      console.log('isFinished');
-      return false;
+      for (let i = 0; i < 3; ++i) {
+        // test colonnes
+        if (this.grid[i][0] === this.grid[i][1] && this.grid[i][1] === this.grid[i][2] && this.grid[i][0] !== undefined) {
+          return true;
+        }
+
+        // test lignes
+        if (this.grid[0][i] === this.grid[1][i] && this.grid[1][i] === this.grid[2][i] && this.grid[0][i] !== undefined) {
+          return true;
+        }
+      }
+
+      // test diagonales
+      if (this.grid[0][0] === this.grid[1][1] && this.grid[1][1] === this.grid[2][2] && this.grid[0][0] !== undefined) {
+        return true;
+      }
+      if (this.grid[0][2] === this.grid[1][1] && this.grid[1][1] === this.grid[2][0] && this.grid[0][2] !== undefined) {
+        return true;
+      }
+
+      // test si égalite à la fin du jeu
+      return this.tour === 9;
     });
 
     this.observableObject.on('hasWinner', (): boolean => {
-      console.log('hasWinner');
-      return false;
+      if (this.isFinished() && this.tour === 9) {
+        return false;
+      }
+      return this.isFinished();
     });
 
     this.observableObject.on('getWinner', (): number => {
-      console.log('getWinner');
-      return 0;
+      if (this.tour === 9) {
+        return undefined;
+      }
+      return Number(!this.currentPlayer);
     });
   }
 

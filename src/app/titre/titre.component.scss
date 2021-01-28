@@ -1,0 +1,18 @@
+/* classe pour le fond d'écran du plateau  */
+#masthead {
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%), url(../../assets/terreDuMilieu.jpg);
+  background-size: cover;
+  z-index: 0;
+}
+
+#titre {
+  position: fixed;
+  text-align: center;
+  margin-top: 1%;
+  z-index: 1;
+}
+
+#image {
+  width: 60%;
+}
