@@ -1,27 +1,27 @@
 table {
   border-collapse: collapse;
-  margin: auto;
+  margin: -1vmin auto;
   z-index: 1;
 }
 
 td {
   border: solid 3px white;
   display: table-cell;
-  width: 20vh;
-  height: 20vh;
+  width: 20vmin;
+  height: 20vmin;
   text-align: center;
 }
 
 h3 {
   color: white;
-  font-size: xx-large;
-  //font-family: ringm, sans-serif;
+  font-size: 50px;
   text-align: center;
+  margin-top: -1vmin;
 }
 
 .persos {
-  height: 15vh;
-  width: 15vh;
+  height: 18vmin;
+  width: 18vmin;
 }
 
 .reset {
@@ -29,7 +29,7 @@ h3 {
 }
 
 .reset img {
-  height: 8vh;
-  width: 8vh;
-  margin-top: 1%;
+  height: 10vmin;
+  width: 10vmin;
+  margin-top: 2vmin;
 }

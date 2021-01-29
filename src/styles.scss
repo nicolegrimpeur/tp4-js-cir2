@@ -4,10 +4,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 @font-face {
-  font-family: "ringm";
-  src: url(assets/RINGM.ttf);
+  font-family: "spyro";
+  src: url(assets/spyro.ttf);
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: ringm, sans-serif; }
-
+body { margin: 0; font-family: spyro, sans-serif; }
