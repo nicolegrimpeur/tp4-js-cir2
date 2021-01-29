@@ -1,0 +1,35 @@
+table {
+  border-collapse: collapse;
+  margin: auto;
+  z-index: 1;
+}
+
+td {
+  border: solid 3px white;
+  display: table-cell;
+  width: 20vh;
+  height: 20vh;
+  text-align: center;
+}
+
+h3 {
+  color: white;
+  font-size: xx-large;
+  //font-family: ringm, sans-serif;
+  text-align: center;
+}
+
+.persos {
+  height: 15vh;
+  width: 15vh;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset img {
+  height: 8vh;
+  width: 8vh;
+  margin-top: 1%;
+}
