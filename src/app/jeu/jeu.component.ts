@@ -18,8 +18,7 @@ export class JeuComponent implements OnInit {
   ngOnInit(): void {
     this.game = new TicTacToe();
 
-    this.view = new TicTacToeView(this.game, 'LetsGo', document);
-
+    this.view = new TicTacToeView(this.game, 'LetsGo');
   }
 
   mesTests(): void {

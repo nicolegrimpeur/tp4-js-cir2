@@ -1,10 +1,10 @@
 import {Observable} from './Observable';
 
 export class TicTacToe extends Observable {
-  public grid: any;
-  public currentPlayer: number;
+  public readonly grid: number[][];
+  private currentPlayer: number;
   private observableObject: Observable;
-  protected tour: number;
+  private tour: number;
 
   constructor() {
     super();
@@ -72,24 +72,26 @@ export class TicTacToe extends Observable {
         return true;
       }
 
-      // test si égalite à la fin du jeu
-      return this.tour === 9;
+      // test si égalité à la fin du jeu
+      // return this.tour === 9;
+      return (this.tour === 9) ? undefined : false;
     });
 
     this.observableObject.on('hasWinner', (): boolean => {
-      if (this.isFinished() && this.tour === 9) {
+      if (this.isFinished() === undefined && this.tour === 9) {
         return false;
       }
       return this.isFinished();
     });
 
     this.observableObject.on('getWinner', (): number => {
-      if (this.tour === 9) {
-        return undefined;
-      }
-      return Number(!this.currentPlayer);
+      // if (this.tour === 9 && !this.isFinished()) {
+      //   return undefined;
+      // }
+      return (this.isFinished() === undefined) ? undefined : Number(!this.currentPlayer);
     });
   }
+
 
   reset(): void {
     this.observableObject.trigger('reset');

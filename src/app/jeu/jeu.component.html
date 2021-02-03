@@ -3,14 +3,14 @@
 
   <!--image du joueur qui doit jouer tant que le jeu n'est pas fini-->
   <img
-    *ngIf="!game.isFinished()"
+    *ngIf="!game.isFinished() && game.isFinished() !== undefined"
     [ngClass]="(game.getCurrentPlayer() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     alt="Image du joueur">
 
   <!--image du joueur qui a gagné ou de rien s'il y a égalité-->
   <img
-    *ngIf="game.isFinished() && game.getWinner() !== undefined"
+    *ngIf="game.isFinished()"
     [ngClass]="(game.getWinner() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     alt="Image du gagnant">
@@ -18,14 +18,6 @@
 
 <table id="morpion">
   <tr>
-    <!--    <td class="mechant"></td>-->
-    <!--    <td><img class="persos" src="../../assets/ripto.png" alt="Sauron"></td>-->
-    <!--    <td-->
-    <!--      [ngClass]="{'': game.grid[0][0] === undefined, 'gentil':game.grid[0][0] === 0, 'mechant':game.grid[0][0] === 1}"-->
-    <!--      (click)="view.clickEvent(0,0)"></td>-->
-    <!--    <td-->
-    <!--      [ngClass]="(game.grid[0][1] === undefined) ? '' : (game.grid[0][1] === 0) ? 'gentil' : 'mechant'"-->
-    <!--      (click)="view.clickEvent(0,1)"></td>-->
     <td
       [ngClass]="view.checkClass(0, 0)"
       (click)="view.clickEvent(0,0)"></td>
@@ -60,6 +52,7 @@
   </tr>
 </table>
 
+<!--bouton reset-->
 <div
   [ngClass]="(game.getTour() === 0) ? 'reset' : 'reset bouton'"
   (click)="game.reset(); view.nomJoueur()">
