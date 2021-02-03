@@ -10,14 +10,15 @@ import {TicTacToe} from './TicTacToe';
   encapsulation: ViewEncapsulation.None
 })
 export class JeuComponent implements OnInit {
+  public game: TicTacToe;
+  public view: TicTacToeView;
   constructor() {
   }
 
   ngOnInit(): void {
-    console.log(document.getElementById('morpion'));
-    const game = new TicTacToe();
+    this.game = new TicTacToe();
 
-    const view = new TicTacToeView(game, 'LetsGo', document);
+    this.view = new TicTacToeView(this.game, 'LetsGo', document);
 
   }
 

@@ -5,6 +5,7 @@ export class TicTacToe extends Observable {
   public currentPlayer: number;
   private observableObject: Observable;
   protected tour: number;
+
   constructor() {
     super();
     this.observableObject = new Observable();
@@ -46,8 +47,11 @@ export class TicTacToe extends Observable {
       return this.grid[x][y];
     });
 
+    this.observableObject.on('getTour', (): number => {
+      return this.tour;
+    });
+
     this.observableObject.on('isFinished', (): boolean => {
-      console.log(this.grid);
       for (let i = 0; i < 3; ++i) {
         // test colonnes
         if (this.grid[i][0] === this.grid[i][1] && this.grid[i][1] === this.grid[i][2] && this.grid[i][0] !== undefined) {
@@ -69,7 +73,7 @@ export class TicTacToe extends Observable {
       }
 
       // test si égalite à la fin du jeu
-      return false;
+      return this.tour === 9;
     });
 
     this.observableObject.on('hasWinner', (): boolean => {
@@ -101,6 +105,10 @@ export class TicTacToe extends Observable {
 
   getCaseState(x: number, y: number): number {
     return this.observableObject.trigger('getCaseState', x, y);
+  }
+
+  getTour(): number {
+    return this.observableObject.trigger('getTour');
   }
 
   isFinished(): boolean {
