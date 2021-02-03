@@ -1,20 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {TicTacToeView} from './TicTacToeView';
 import {TicTacToe} from './TicTacToe';
-import {Observable} from './Observable';
 
 
 @Component({
   selector: 'app-jeu',
   templateUrl: './jeu.component.html',
-  styleUrls: ['./jeu.component.scss']
+  styleUrls: ['./jeu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class JeuComponent implements OnInit {
-
   constructor() {
-    this.mesTests();
   }
 
   ngOnInit(): void {
+    console.log(document.getElementById('morpion'));
+    const game = new TicTacToe();
+
+    const view = new TicTacToeView(game, 'LetsGo', document);
+
   }
 
   mesTests(): void {

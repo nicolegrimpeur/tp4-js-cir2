@@ -22,14 +22,31 @@ h3 {
 .persos {
   height: 18vmin;
   width: 18vmin;
+  //border: 100px;
+}
+
+.miniPerso {
+  height: 8vmin;
+  width: 8vmin;
+}
+
+.gentil {
+  background-image: url("../../assets/spyro.png");
+  background-size: cover;
+}
+
+.mechant {
+  background-image: url("../../assets/ripto.png");
+  background-size: cover;
 }
 
 .reset {
-  text-align: center;
-}
-
-.reset img {
   height: 10vmin;
   width: 10vmin;
-  margin-top: 2vmin;
+  margin: 2vmin auto;
+}
+
+.bouton {
+  background-image: url("../../assets/orbe.png");
+  background-size: cover;
 }
