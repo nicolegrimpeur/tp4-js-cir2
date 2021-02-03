@@ -73,21 +73,14 @@ export class TicTacToe extends Observable {
       }
 
       // test si égalité à la fin du jeu
-      // return this.tour === 9;
       return (this.tour === 9) ? undefined : false;
     });
 
     this.observableObject.on('hasWinner', (): boolean => {
-      if (this.isFinished() === undefined && this.tour === 9) {
-        return false;
-      }
-      return this.isFinished();
+      return (this.isFinished() === undefined) ? false : this.isFinished();
     });
 
     this.observableObject.on('getWinner', (): number => {
-      // if (this.tour === 9 && !this.isFinished()) {
-      //   return undefined;
-      // }
       return (this.isFinished() === undefined) ? undefined : Number(!this.currentPlayer);
     });
   }
