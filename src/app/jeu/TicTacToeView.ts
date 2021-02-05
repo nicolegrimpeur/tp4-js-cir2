@@ -1,17 +1,35 @@
 import {TicTacToe} from './TicTacToe';
+import {theme} from '../../main';
 
 export class TicTacToeView {
   private readonly game: TicTacToe;
   private readonly name: any;
-  private readonly gentil: string;
-  private readonly mechant: string;
+  private gentil: string;
+  private mechant: string;
 
   constructor(game, name) {
     this.game = game;
     this.name = name;
-    this.gentil = 'Spyro';
-    this.mechant = 'Ripto';
+    this.initPersos();
     this.nomJoueur();
+  }
+
+  // initialise les noms des gentils et des méchants
+  initPersos(): void {
+    switch (theme) {
+      case ('anneau'):
+        this.gentil = 'Frodon';
+        this.mechant = 'Sauron';
+        break;
+      case ('harry'):
+        this.gentil = 'Harry';
+        this.mechant = 'Draco';
+        break;
+      default:
+        this.gentil = 'Spyro';
+        this.mechant = 'Ripto';
+        break;
+    }
   }
 
   // lorsque l'on clique sur l'une des cases du tableau

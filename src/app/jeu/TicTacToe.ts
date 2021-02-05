@@ -2,7 +2,8 @@ import {Observable} from './Observable';
 
 export class TicTacToe extends Observable {
   public readonly grid: number[][];
-  private currentPlayer: number;
+  // en public pour que les tests y aient accès
+  public currentPlayer: number;
   private observableObject: Observable;
   private tour: number;
 

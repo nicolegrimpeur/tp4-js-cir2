@@ -1,8 +1,20 @@
+@import "src/styles";
+
+// thème spyro par défaut
+$fond: "chateau.png";
+
+@if $theme == "anneau" {
+  $fond: "terreDuMilieu.jpg"
+}
+@else if $theme == "harry" {
+  $fond: "poudlard.jpg"
+}
+
 /* classe pour le fond d'écran du plateau  */
 #masthead {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%), url(../../assets/chateau.png);
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%), url("../../assets/fond/" + $fond);
   background-size: cover;
   position: fixed;
   z-index: 0;

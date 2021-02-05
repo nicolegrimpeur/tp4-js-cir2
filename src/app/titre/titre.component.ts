@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {theme} from '../../main';
 
 @Component({
   selector: 'app-titre, Titre',
@@ -11,6 +12,23 @@ export class TitreComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.modifTitre();
   }
 
+  // change le titre du jeu en fonction du thème
+  modifTitre(): void {
+    const currentDiv = document.getElementById('titre');
+
+    switch (theme) {
+      case ('anneau'):
+        currentDiv.textContent = 'The Lord Of The Ring';
+        break;
+      case ('harry'):
+        currentDiv.textContent = 'Harry VS Draco';
+        break;
+      default:
+        currentDiv.textContent = 'Spyro\'s Adventure';
+        break;
+    }
+  }
 }

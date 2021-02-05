@@ -23,4 +23,5 @@ import { JeuComponent } from './jeu/jeu.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
