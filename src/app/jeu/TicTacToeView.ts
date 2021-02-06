@@ -1,6 +1,7 @@
 import {TicTacToe} from './TicTacToe';
 import {theme} from '../../theme';
 
+/* classe gérant le côté visuel du jeu */
 export class TicTacToeView {
   private readonly game: TicTacToe;
   private readonly name: any;
@@ -38,11 +39,7 @@ export class TicTacToeView {
     this.game.play(x, y);
 
     // affiche soit le joueur a qui le tour est, soit le joueur ayant gagné
-    if (this.game.hasWinner() || this.game.getTour() === 9) {
-      this.affichageGagnant();
-    } else {
-      this.nomJoueur();
-    }
+    (this.game.hasWinner() || this.game.getTour() === 9) ? this.affichageGagnant() : this.nomJoueur();
   }
 
   // affiche le nom du joueur qui peut jouer
@@ -56,11 +53,12 @@ export class TicTacToeView {
 
   // affiche le gagnant ou s'il y a égalité
   affichageGagnant(): void {
+    // test si l'on a un vainqueur ou non
     if (this.game.hasWinner()) {
       // affiche le joueur qui a gagné
       if (!this.game.getWinner()) {
         document.getElementById('playerNumber').firstChild.textContent = this.gentil + ' a gagné !';
-      } else if (this.game.getWinner()) {
+      } else {
         document.getElementById('playerNumber').firstChild.textContent = this.mechant + ' a gagné !';
       }
     } else {

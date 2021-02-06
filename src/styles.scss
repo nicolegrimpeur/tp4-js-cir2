@@ -3,9 +3,12 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-//$theme: "spyro";
+
+/* Changer le thème ici ! */
+$theme: "spyro";
 //$theme: "anneau";
-$theme: "harry";
+//$theme: "harry";
+
 
 @font-face {
   font-family: "morpion";

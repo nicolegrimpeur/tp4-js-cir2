@@ -1,5 +1,6 @@
 import {Observable} from './Observable';
 
+/* classe gérant le fonctionnement global du jeu */
 export class TicTacToe extends Observable {
   public readonly grid: number[][];
   // en public pour que les tests y aient accès
@@ -17,9 +18,10 @@ export class TicTacToe extends Observable {
     this.reset();
   }
 
+  // initialise les événements nécessaires au bon déroulement du jeu dans observableObject
   initEvent(): void {
     for (let i = 0; i < 3; ++i) {
-      this.grid[i] = Array(3);
+      this.grid[i] = new Array(3);
     }
 
     this.observableObject.on('reset', (): void => {
@@ -33,7 +35,7 @@ export class TicTacToe extends Observable {
     });
 
     this.observableObject.on('play', (x: number, y: number): void => {
-      if (this.getCaseState(x, y) === undefined && !this.isFinished() && this.tour !== 9) {
+      if (this.getCaseState(x, y) === undefined && !this.isFinished()) {
         this.tour++;
         this.grid[x][y] = this.currentPlayer;
         this.currentPlayer = this.getCurrentPlayer();
@@ -82,39 +84,46 @@ export class TicTacToe extends Observable {
     });
 
     this.observableObject.on('getWinner', (): number => {
-      return (this.isFinished() === undefined) ? undefined : Number(!this.currentPlayer);
+      return (this.isFinished() === undefined) ? undefined : Number(!this.getCurrentPlayer());
     });
   }
 
-
+  // reset la partie
   reset(): void {
     this.observableObject.trigger('reset');
   }
 
+  // joue le pion à la case x, y
   play(x: number, y: number): void {
     this.observableObject.trigger('play', x, y);
   }
 
+  // retourne le player qui doit jouer
   getCurrentPlayer(): number {
     return this.observableObject.trigger('getCurrentPlayer');
   }
 
+  // retourne l'état d'une case
   getCaseState(x: number, y: number): number {
     return this.observableObject.trigger('getCaseState', x, y);
   }
 
+  // retourne le tour actuel
   getTour(): number {
     return this.observableObject.trigger('getTour');
   }
 
+  // return si le jeu est terminé ou non, undefined si égalité
   isFinished(): boolean {
     return this.observableObject.trigger('isFinished');
   }
 
+  // retourne s'il y a un gagnant ou non
   hasWinner(): boolean {
     return this.observableObject.trigger('hasWinner');
   }
 
+  // retourne le gagnant
   getWinner(): number {
     return this.observableObject.trigger('getWinner');
   }
