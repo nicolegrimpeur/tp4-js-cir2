@@ -55,6 +55,10 @@ export class TicTacToe extends Observable {
     });
 
     this.observableObject.on('isFinished', (): boolean => {
+      return this.hasWinner() === undefined ? true : this.hasWinner();
+    });
+
+    this.observableObject.on('hasWinner', (): boolean => {
       for (let i = 0; i < 3; ++i) {
         // test colonnes
         if (this.grid[i][0] === this.grid[i][1] && this.grid[i][1] === this.grid[i][2] && this.grid[i][0] !== undefined) {
@@ -79,12 +83,8 @@ export class TicTacToe extends Observable {
       return (this.tour === 9) ? undefined : false;
     });
 
-    this.observableObject.on('hasWinner', (): boolean => {
-      return (this.isFinished() === undefined) ? false : this.isFinished();
-    });
-
     this.observableObject.on('getWinner', (): number => {
-      return (this.isFinished() === undefined) ? undefined : Number(!this.getCurrentPlayer());
+      return (this.hasWinner() === undefined) ? undefined : Number(!this.getCurrentPlayer());
     });
   }
 

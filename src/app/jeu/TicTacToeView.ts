@@ -23,7 +23,7 @@ export class TicTacToeView {
         this.mechant = 'Sauron';
         break;
       case ('harry'):
-        this.gentil = 'Harry';
+        this.gentil = 'Har¡y';
         this.mechant = 'Draco';
         break;
       default:
@@ -39,7 +39,7 @@ export class TicTacToeView {
     this.game.play(x, y);
 
     // affiche soit le joueur a qui le tour est, soit le joueur ayant gagné
-    (this.game.hasWinner() || this.game.getTour() === 9) ? this.affichageGagnant() : this.nomJoueur();
+    this.game.isFinished() ? this.affichageGagnant() : this.nomJoueur();
   }
 
   // affiche le nom du joueur qui peut jouer
@@ -54,7 +54,7 @@ export class TicTacToeView {
   // affiche le gagnant ou s'il y a égalité
   affichageGagnant(): void {
     // test si l'on a un vainqueur ou non
-    if (this.game.hasWinner()) {
+    if (this.game.hasWinner() !== undefined) {
       // affiche le joueur qui a gagné
       if (!this.game.getWinner()) {
         document.getElementById('playerNumber').firstChild.textContent = this.gentil + ' a gagné !';

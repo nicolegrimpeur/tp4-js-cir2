@@ -3,14 +3,14 @@
 
   <!--image du joueur qui doit jouer tant que le jeu n'est pas fini-->
   <img
-    *ngIf="!game.isFinished() && game.isFinished() !== undefined"
+    *ngIf="!game.isFinished()"
     [ngClass]="(game.getCurrentPlayer() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     alt="Image du joueur">
 
   <!--image du joueur qui a gagné ou de rien s'il y a égalité-->
   <img
-    *ngIf="game.isFinished()"
+    *ngIf="game.hasWinner()"
     [ngClass]="(game.getWinner() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     alt="Image du gagnant">

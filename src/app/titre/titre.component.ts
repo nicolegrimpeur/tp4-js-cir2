@@ -24,7 +24,7 @@ export class TitreComponent implements OnInit {
         currentDiv.textContent = 'The Lord Of The Ring';
         break;
       case ('harry'):
-        currentDiv.textContent = 'Harry VS Draco';
+        currentDiv.textContent = 'Har¡y VS Draco';
         break;
       default:
         currentDiv.textContent = 'Spyro\'s Adventure';
