@@ -1,1 +1,60 @@
-<p>jeu works!</p>
+<h3 id="playerNumber">
+  C'est au joueur ?
+
+  <!--image du joueur qui doit jouer tant que le jeu n'est pas fini-->
+  <img
+    *ngIf="!game.isFinished()"
+    [ngClass]="(game.getCurrentPlayer() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    alt="Image du joueur">
+
+  <!--image du joueur qui a gagné ou de rien s'il y a égalité-->
+  <img
+    *ngIf="game.hasWinner()"
+    [ngClass]="(game.getWinner() === 0) ? 'miniPerso gentil' : 'miniPerso mechant'"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    alt="Image du gagnant">
+</h3>
+
+<!--table de jeu du morpion-->
+<table id="morpion">
+  <tr>
+    <td
+      [ngClass]="view.checkClass(0, 0)"
+      (click)="view.clickEvent(0,0)"></td>
+    <td
+      [ngClass]="view.checkClass(0, 1)"
+      (click)="view.clickEvent(0,1)"></td>
+    <td
+      [ngClass]="view.checkClass(0, 2)"
+      (click)="view.clickEvent(0,2)"></td>
+  </tr>
+  <tr>
+    <td
+      [ngClass]="view.checkClass(1, 0)"
+      (click)="view.clickEvent(1,0)"></td>
+    <td
+      [ngClass]="view.checkClass(1, 1)"
+      (click)="view.clickEvent(1, 1)"></td>
+    <td
+      [ngClass]="view.checkClass(1, 2)"
+      (click)="view.clickEvent(1,2)"></td>
+  </tr>
+  <tr>
+    <td
+      [ngClass]="view.checkClass(2, 0)"
+      (click)="view.clickEvent(2,0)"></td>
+    <td
+      [ngClass]="view.checkClass(2, 1)"
+      (click)="view.clickEvent(2,1)"></td>
+    <td
+      [ngClass]="view.checkClass(2, 2)"
+      (click)="view.clickEvent(2,2)"></td>
+  </tr>
+</table>
+
+<!--bouton reset-->
+<div
+  [ngClass]="(game.getTour() === 0) ? 'reset' : 'reset bouton'"
+  (click)="game.reset(); view.nomJoueur()">
+</div>

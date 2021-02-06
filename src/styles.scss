@@ -3,5 +3,17 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+
+/* Changer le thème ici ! */
+$theme: "spyro";
+//$theme: "anneau";
+//$theme: "harry";
+
+
+@font-face {
+  font-family: "morpion";
+  src: url("assets/polices/" + $theme + ".ttf");
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: morpion, sans-serif; }

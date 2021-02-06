@@ -1,4 +1,8 @@
 export class EventTab {
-  constructor() {
+  private readonly name: string;
+  private readonly callBack: string;
+  constructor(name, callBack) {
+    this.name = name;
+    this.callBack = callBack;
   }
 }

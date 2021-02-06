@@ -1,0 +1,68 @@
+@import "src/styles";
+
+$gentil: "spyro.png";
+$mechant: "ripto.png";
+$bouton: "orbe.png";
+
+@if $theme == "anneau" {
+  $gentil: "frodon.png";
+  $mechant: "sauron.png";
+  $bouton: "anneau.png";
+}
+@else if $theme == "harry" {
+  $gentil: "harry.png";
+  $mechant: "draco.png";
+  $bouton: "934.png";
+}
+
+table {
+  border-collapse: collapse;
+  margin: -1vmin auto;
+  z-index: 1;
+}
+
+td {
+  border: solid 3px white;
+  display: table-cell;
+  width: 20vmin;
+  height: 20vmin;
+  text-align: center;
+}
+
+h3 {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  margin-top: -1vmin;
+}
+
+.persos {
+  height: 18vmin;
+  width: 18vmin;
+}
+
+.miniPerso {
+  height: 10vmin;
+  width: 10vmin;
+}
+
+.gentil {
+  background-image: url("../../assets/personnages/"+ $gentil);
+  background-size: cover;
+}
+
+.mechant {
+  background-image: url("../../assets/personnages/" + $mechant);
+  background-size: cover;
+}
+
+.reset {
+  height: 10vmin;
+  width: 10vmin;
+  margin: 2vmin auto;
+}
+
+.bouton {
+  background-image: url("../../assets/bouton/" + $bouton);
+  background-size: cover;
+}
