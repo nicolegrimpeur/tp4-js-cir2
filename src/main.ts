@@ -10,10 +10,3 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-
-
-export let theme: string;
-// theme = 'spyro';
-// theme = 'anneau';
-theme = 'harry';
-

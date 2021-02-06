@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {theme} from '../../main';
+import {theme} from '../../theme';
 
 @Component({
   selector: 'app-titre, Titre',

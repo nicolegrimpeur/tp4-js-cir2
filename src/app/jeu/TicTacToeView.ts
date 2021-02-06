@@ -1,5 +1,5 @@
 import {TicTacToe} from './TicTacToe';
-import {theme} from '../../main';
+import {theme} from '../../theme';
 
 export class TicTacToeView {
   private readonly game: TicTacToe;
