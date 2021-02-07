@@ -10,9 +10,9 @@ Dans le dossier dist, 3 versions sont compilés en fonction des thèmes choisis 
 Les thèmes sont modifiables dans les fichiers styles.scss et theme.ts situé dans le dossier src/
 
 Les 3 versions sont en ligne aux adresses :
-- nicob.space/anneau
-- nicob.space/harry
-- nicob.space/spyro
+- https://nicob.space/anneau
+- https://nicob.space/harry
+- https://nicob.space/spyro
 
 
 Pour initialiser le projet angular, il vous suffit de taper ```npm install``` dans un cmd dans le dossier du projet
@@ -23,3 +23,5 @@ Concernant les tests unitaires liés à l'énoncé, ceux-ci ont été transcris 
 Bon jeu !
 
 Réalisé par Nicolas Barrat, ISEN Lille CIR2
+
+Lien vers le github du projet : https://github.com/nicolegrimpeur/tp4-js-cir2
